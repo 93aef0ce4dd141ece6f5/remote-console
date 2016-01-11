@@ -24,10 +24,10 @@
  * 
  * 
  * To-do:
- *      - thread stdout, stderr
- *      - remove dtor
- *      - add proper cleanups
- *      - split functions into files
+ *  - thread stdout, stderr
+ *  - remove dtor
+ *  - add proper cleanups
+ *  - split functions into files
  * 
  * 
  * 
@@ -166,29 +166,14 @@ void startReceiver (void) {
         return;
     }
 
-    if (!SetHandleInformation (stdInWrite, HANDLE_FLAG_INHERIT, 0)) {
-        nonFatal ("Set stdin handle", WINDOWS);
-        return; 
-    }
-
     if (!CreatePipe (&stdOutRead, &stdOut, &sa, 0)) {
         nonFatal ("Create stdout pipe", WINDOWS);
         return;
     }
 
-    if (!SetHandleInformation (stdOutRead, HANDLE_FLAG_INHERIT, 0)) {
-        nonFatal ("Set stdout handle", WINDOWS);
-        return; 
-    }
-
     if (!CreatePipe (&stdErrRead, &stdErr, &sa, 0)) {
         printf ("Error: CreatePipe: %d\n", (int)GetLastError());
         return;
-    }
-
-    if (!SetHandleInformation (stdErrRead, HANDLE_FLAG_INHERIT, 0)) {
-        printf ("Error: Set stdErrRead Info: %d\n", (int)GetLastError());
-        return; 
     }
 
     si.hStdInput = stdIn;
