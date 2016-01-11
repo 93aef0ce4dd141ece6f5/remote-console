@@ -1,8 +1,9 @@
 /*
  * 
- * description and author required here
- * 
- * 
+ * Author: 93aef0ce4dd141ece6f5
+ * Description: Recieves data from server and writes into a 
+ *              command prompt process, then sends the output
+ *              back to the server.
  * 
  * Copyright (C) 2016 93aef0ce4dd141ece6f5
  * 
