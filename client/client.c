@@ -54,7 +54,7 @@
 #define MUTEX_VAL "RMT_CON"
 
 // target options
-#define TARGET_IP "27.253.116.172"
+#define TARGET_IP "xxx.xxx.xxx.xxx"
 #define TARGET_PORT "6969"
 
 #define MINUTE 60*1000
